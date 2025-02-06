@@ -4,7 +4,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AC8A75F7-6B4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.Optimizations.Application", "src\EFCore.Optimizations.Application\EFCore.Optimizations.Application.csproj", "{D4A1E7FD-36D1-4E6F-89DB-7935EC29E5F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.Optimizations.Benchmarking", "EFCore.Optimizations.Benchmarking\EFCore.Optimizations.Benchmarking.csproj", "{DAF7C7B0-DE9E-4763-9557-34E9D6877F68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.Optimizations.Benchmarking", "src\EFCore.Optimizations.Benchmarking\EFCore.Optimizations.Benchmarking.csproj", "{DAF7C7B0-DE9E-4763-9557-34E9D6877F68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
