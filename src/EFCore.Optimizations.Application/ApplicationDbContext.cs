@@ -16,7 +16,13 @@ public class ApplicationDbContext: DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Profile>(entity => entity.HasKey(e => e.Id));
+        modelBuilder.Entity<Profile>(entity => entity.Property(p=>p.Name).HasMaxLength(100));
+        modelBuilder.Entity<Profile>(entity => entity.Property(p=>p.Email).HasMaxLength(100));
+        modelBuilder.Entity<Profile>(entity => entity.Property(p=>p.Phone).HasMaxLength(20));
+        modelBuilder.Entity<Profile>(entity => entity.Property(p=>p.Address).HasMaxLength(100));
         modelBuilder.Entity<User>(entity => entity.HasKey(e => e.Id));
+        modelBuilder.Entity<User>(entity => entity.Property(p=>p.UserName).HasMaxLength(20));
+        modelBuilder.Entity<User>(entity => entity.Property(p=>p.Password).HasMaxLength(20));
         base.OnModelCreating(modelBuilder);
     }
 }

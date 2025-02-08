@@ -8,5 +8,5 @@ public class Profile
     public string Phone { get; set; } = string.Empty;
     public string Address { get; set; } = string.Empty;
     
-    public User User { get; set; } = null!;
+    public virtual User User { get; set; } = null!;
 }

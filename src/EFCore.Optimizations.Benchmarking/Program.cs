@@ -8,10 +8,23 @@ using Microsoft.Extensions.Hosting;
 
 var builder = Host.CreateApplicationBuilder(args);
 
+builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+string connectionString = builder.Configuration.GetConnectionString("ConnectionString");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString")));
 
 
 using var app = builder.Build();
 
-Console.WriteLine("Hello, World!");
+using var scope = app.Services.CreateScope();
+var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+//await DataSeeder.SeedAsync(dbContext);
+
+//Comparator.ToListThenFilter(dbContext);
+//Comparator.FilterThenToList(dbContext);
+
+Comparator.WithEagerLoading(dbContext);
+Comparator.WithLazyLoading(dbContext);
+
+Console.WriteLine("Operations completed");

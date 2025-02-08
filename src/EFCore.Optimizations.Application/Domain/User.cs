@@ -7,5 +7,5 @@ public class User
     public string Password { get; set; } = string.Empty;
     public int ProfileId { get; set; }
     
-    public Profile Profile { get; set; } = null!;
+    public virtual Profile Profile { get; set; } = null!;
 }
