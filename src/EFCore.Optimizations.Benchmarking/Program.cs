@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using EFCore.Optimizations.Application;
+using EFCore.Optimizations.Application.Domain;
 using EFCore.Optimizations.Application.Interceptors;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,7 +28,16 @@ var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>()
 //Comparator.ToListThenFilter(dbContext);
 //Comparator.FilterThenToList(dbContext);
 
-Comparator.WithEagerLoading(dbContext);
-Comparator.WithLazyLoading(dbContext);
+//Comparator.WithEagerLoading(dbContext);
+//Comparator.WithLazyLoading(dbContext);
+
+dbContext.Profiles.Add(new Profile
+{
+    Name = "Test 1",
+    Email = "test1@gmail.com",
+    Phone = "+8801123456",
+    Address = "Test Address 1"
+});
+await dbContext.SaveChangesAsync();
 
 Console.WriteLine("Operations completed");
