@@ -9,7 +9,6 @@ using Microsoft.Extensions.Hosting;
 var builder = Host.CreateApplicationBuilder(args);
 
 builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-string connectionString = builder.Configuration.GetConnectionString("ConnectionString");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString")));
