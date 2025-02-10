@@ -11,7 +11,8 @@ public static class Comparator
         Console.WriteLine("ToListThenFilter");
         Stopwatch watch = new Stopwatch();
         watch.Start();
-        var profiles = dbContext.Profiles.ToList().Select(p=>p.Email.EndsWith(".gmail.com"));
+        var profiles = dbContext.Profiles.ToList().Where(p=>p.Email.EndsWith("@gmail.com"));
+        Console.WriteLine(profiles.Count());
         watch.Stop();
         Console.WriteLine($"ToListThenFilter: {watch.ElapsedMilliseconds}ms");
     }
@@ -21,7 +22,8 @@ public static class Comparator
         Console.WriteLine("FilterThenToList");
         Stopwatch watch = new Stopwatch();
         watch.Start();
-        var profiles = dbContext.Profiles.Where(p=>p.Email.EndsWith(".gmail.com")).ToList();
+        var profiles = dbContext.Profiles.Where(p=>p.Email.EndsWith("@gmail.com")).ToList();
+        Console.WriteLine(profiles.Count);
         watch.Stop();
         Console.WriteLine($"ToListThenFilter: {watch.ElapsedMilliseconds}ms");
     }
